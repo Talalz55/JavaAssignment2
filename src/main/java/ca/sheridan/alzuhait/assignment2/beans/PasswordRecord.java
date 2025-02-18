@@ -1,3 +1,8 @@
+/*
+    Talal Al-Zuhair
+    ID: 991658377
+ */
+
 package ca.sheridan.alzuhait.assignment2.beans;
 import jakarta.persistence.*;
 import lombok.*;

@@ -1,3 +1,8 @@
+/*
+Talal Al-Zuhair
+ID: 991658377
+*/
+
 /* General Styles */
 * {
     padding: 0;
@@ -52,6 +57,10 @@ header {
     position: relative;
 }
 
+#headerImage {
+    width: 50px;
+    height: auto;
+}
 header h1 {
     font-size: 2rem;
     font-weight: bolder;
@@ -110,7 +119,7 @@ main img {
     border-radius: var(--border-radius);
 }
 
-.available-books-main {
+.table-main {
     gap: 1rem;
     width: 80vw;
     max-width: 80vw;
@@ -241,10 +250,3 @@ footer {
     font-weight: bold;
 }
 
-/* Information */
-.information-div {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}

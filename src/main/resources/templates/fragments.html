@@ -1,3 +1,8 @@
+<!--
+Talal Al-Zuhair
+ID: 991658377
+-->
+
 <head th:fragment="head">
     <link rel="stylesheet" th:href="@{/css/globals.css}" />
     <meta charset="UTF-8">
@@ -5,13 +10,13 @@
 </head>
 
 <header th:fragment="header">
-    <h1>Talal's Books</h1>
+    <h1>Talal's Passwords</h1>
+    <img id="headerImage" th:src="@{/images/logo.jpg}" alt="Logo" />
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/AvailableBooks">Books</a></li>
-            <li><a href="/ShoppingCart">Cart</a></li>
-            <li><a href="/CheckOut">Checkout</a></li>
+            <li><a href="/viewPasswordRecord">View Passwords</a></li>
+            <li><a href="/searchPasswordRecord">Search Passwords</a></li>
         </ul>
     </nav>
 </header>

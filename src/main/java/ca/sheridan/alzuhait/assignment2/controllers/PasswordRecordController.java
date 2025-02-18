@@ -1,3 +1,8 @@
+/*
+    Talal Al-Zuhair
+    ID: 991658377
+ */
+
 package ca.sheridan.alzuhait.assignment2.controllers;
 
 import ca.sheridan.alzuhait.assignment2.beans.PasswordRecord;
@@ -7,9 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.Random;
+import java.util.List;
 
 @Controller
 public class PasswordRecordController {
@@ -19,7 +25,6 @@ public class PasswordRecordController {
 
     @GetMapping("/")
     public String showHomePage(Model model) {
-        // Generate a random ID for the form
         model.addAttribute("password", new PasswordRecord());
         return "index";
     }
@@ -29,11 +34,29 @@ public class PasswordRecordController {
     public String addPasswordRecord(PasswordRecord passwordRecord, Model model) {
         // Save the record to the repository
         passwordRecordRepository.save(passwordRecord);
-
-        // Add a success message and the password object back to the model for rendering in the view
         model.addAttribute("password", passwordRecord);
         model.addAttribute("recordAdded", true);
+        return "index";
+    }
 
-        return "index"; // Stay on the same page
+    @GetMapping("/viewPasswordRecord")
+    public String viewPasswordRecords(Model model) {
+        List<PasswordRecord> passwordRecords = passwordRecordRepository.findAll();
+        model.addAttribute("passwordRecords", passwordRecords);
+        return "viewPasswordRecord";
+    }
+
+    @GetMapping("/searchPasswordRecord")
+    public String getSearchPasswordRecord() {
+        return "searchPasswordRecord";
+    }
+
+    @PostMapping("/searchPasswordRecord")
+    public String postSearchPasswordRecord(@RequestParam("title") String title, Model model) {
+        List<PasswordRecord> passwordRecords = passwordRecordRepository.findByTitleContainingIgnoreCase(title);
+
+        model.addAttribute("passwordRecords", passwordRecords);
+
+        return "searchPasswordRecord";
     }
 }

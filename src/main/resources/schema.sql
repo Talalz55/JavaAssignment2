@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS PASSWORD_RECORD;
 CREATE TABLE PASSWORD_RECORD (
                                  id BIGINT AUTO_INCREMENT PRIMARY KEY,
                                  title VARCHAR(255) NOT NULL,
